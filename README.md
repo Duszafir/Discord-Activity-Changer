@@ -34,7 +34,6 @@ const rpc = new RPC.Client({ transport: "ipc" });
 
 const startTimestamp = Date.now();
 
-// Función para establecer la actividad
 async function setActivity() {
     if (!rpc) return;
     rpc.setActivity({
