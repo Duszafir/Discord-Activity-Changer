@@ -41,7 +41,7 @@ async function setActivity() {
         details: "Playing example blabla",
         state: "This is a very good game!", // Estado de la actividad
         largeImageKey: "example.png",
-        largeImageText: "example", // Texto que aparecerá al pasar el ratón sobre la imagen
+        largeImageText: "example", // Texto que aparecerá al pasar el mouse sobre la imagen
         startTimestamp: startTimestamp
     });
 }
