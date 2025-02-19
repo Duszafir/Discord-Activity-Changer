@@ -36,24 +36,23 @@ const startTimestamp = Date.now(); // Marca de tiempo de inicio
 
 // Función para establecer la actividad
 async function setActivity() {
-    if (!rpc) return; // Verifica si rpc está disponible
+    if (!rpc) return;
     rpc.setActivity({
-        details: "Playing example blabla", // Detalle de la actividad (lo que estás jugando)
+        details: "Playing example blabla",
         state: "This is a very good game!", // Estado de la actividad
-        largeImageKey: "example.png", // Imagen que se mostrará
+        largeImageKey: "example.png",
         largeImageText: "example", // Texto que aparecerá al pasar el ratón sobre la imagen
-        startTimestamp: startTimestamp // Tiempo de inicio de la actividad
+        startTimestamp: startTimestamp
     });
 }
 
 // Evento 'ready', cuando el cliente de Discord está listo
 rpc.on("ready", () => {
-    console.log("Rich Presence activado!"); // Mensaje en consola
-    setActivity(); // Establece la actividad
-    setInterval(setActivity, 15 * 1000); // Actualiza la actividad cada 15 segundos
+    console.log("Rich Presence activado!");
+    setActivity();
+    setInterval(setActivity, 15 * 1000);
 });
 
-// Inicia sesión con el clientId de tu aplicación de Discord
 rpc.login({ clientId }).catch(console.error);
 ```
 
