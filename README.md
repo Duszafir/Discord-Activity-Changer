@@ -32,7 +32,7 @@ const clientId = ""; // El cliente ID de tu aplicacion de discord
 
 const rpc = new RPC.Client({ transport: "ipc" });
 
-const startTimestamp = Date.now(); // Marca de tiempo de inicio
+const startTimestamp = Date.now();
 
 // Función para establecer la actividad
 async function setActivity() {
@@ -46,7 +46,6 @@ async function setActivity() {
     });
 }
 
-// Evento 'ready', cuando el cliente de Discord está listo
 rpc.on("ready", () => {
     console.log("Rich Presence activado!");
     setActivity();
