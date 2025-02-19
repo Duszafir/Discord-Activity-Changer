@@ -77,63 +77,63 @@ Para facilitar la ejecución del proyecto, hemos incluido un archivo `.bat` que 
    - Si el archivo `.bat` aún no está configurado, abre el archivo `DiscordActivityChanger.bat` con un editor de texto (como Notepad) y asegúrate de que esté correctamente configurado para ejecutar tu archivo `example.js`. El contenido debería verse algo así:
 
    ```bat
-   @echo off
-title Discord Activity Changer
-:inicio
-cls
-color a
-echo ========================================
-echo       Discord Activity Changer
-echo ========================================
-echo.
-echo Archivos disponibles en la carpeta:
-echo ----------------------------------------
+      @echo off
+      title Discord Activity Changer
+      :inicio
+      cls
+      color a
+      echo ========================================
+      echo       Discord Activity Changer
+      echo ========================================
+      echo.
+      echo Archivos disponibles en la carpeta:
+      echo ----------------------------------------
 
-for %%F in (*.js) do echo - %%~nF
+      for %%F in (*.js) do echo - %%~nF
 
-echo.
-set /p archivo=Escribe el archivo Node.js a ejecutar (sin .js): 
+      echo.
+      set /p archivo=Escribe el archivo Node.js a ejecutar (sin .js): 
 
-if exist "%archivo%.js" (
-    cls
-    echo ==================================================
-    echo Ejecutando %archivo%.js...
-    echo ==================================================
-    start /B node "%archivo%.js"
-    goto control
-) else (
-    cls
-    color c
-    echo ==================================================
-    echo   ERROR: El archivo "%archivo%.js" no existe.
-    echo   Intentalo de nuevo.
-    echo ==================================================
-    timeout /t 2 >nul
-    goto inicio
-)
+      if exist "%archivo%.js" (
+          cls
+          echo ==================================================
+          echo Ejecutando %archivo%.js...
+          echo ==================================================
+          start /B node "%archivo%.js"
+          goto control
+      ) else (
+          cls
+          color c
+          echo ==================================================
+          echo   ERROR: El archivo "%archivo%.js" no existe.
+          echo   Intentalo de nuevo.
+          echo ==================================================
+          timeout /t 2 >nul
+          goto inicio
+      )
 
-:control
-cls
-color b
-echo ==================================================
-echo  Node.js en ejecucion: %archivo%.js
-echo ==================================================
-echo.
-set /p opcion=Escribe "cambiar" para detener y elegir otro archivo: 
+      :control
+      cls
+      color b
+      echo ==================================================
+      echo  Node.js en ejecucion: %archivo%.js
+      echo ==================================================
+      echo.
+      set /p opcion=Escribe "cambiar" para detener y elegir otro archivo: 
 
-if /I "%opcion%"=="cambiar" (
-    taskkill /F /IM node.exe >nul 2>&1
-    cls
-    color c
-    echo ==================================================
-    echo       Node detenido correctamente.
-    echo ==================================================
-    timeout /t 2 >nul
-    goto inicio
-) else (
-    goto control
-)
-   ```
+      if /I "%opcion%"=="cambiar" (
+          taskkill /F /IM node.exe >nul 2>&1
+          cls
+          color c
+          echo ==================================================
+          echo       Node detenido correctamente.
+          echo ==================================================
+          timeout /t 2 >nul
+          goto inicio
+      ) else (
+          goto control
+      )
+
 
 3. **Ejecuta el archivo `.bat`**:
    - Solo debes hacer doble clic en el archivo `DiscordActivityChanger.bat` y seguir las instrucciones que aparecen en la consola para ejecutar tu script.
