@@ -78,56 +78,61 @@ Para facilitar la ejecución del proyecto, hemos incluido un archivo `.bat` que 
 
    ```bat
    @echo off
-   title Discord Activity Changer
-   cls
-   color a
-   echo ========================================
-   echo       Discord Activity Changer
-   echo ========================================
-   echo.
-   echo Lista disponible: emo - index(milei) - pornhub - skibidi
-   echo.
-   set /p archivo=Escribe el archivo Node.js a ejecutar (sin .js): 
+title Discord Activity Changer
+:inicio
+cls
+color a
+echo ========================================
+echo       Discord Activity Changer
+echo ========================================
+echo.
+echo Archivos disponibles en la carpeta:
+echo ----------------------------------------
 
-   if exist "%archivo%.js" (
-       cls
-       echo ==================================================
-       echo Ejecutando %archivo%.js...
-       echo ==================================================
-       start /B node "%archivo%.js"
-       goto control
-   ) else (
-       cls
-       color c
-       echo ==================================================
-       echo   ERROR: El archivo "%archivo%.js" no existe.
-       echo   Intentalo de nuevo.
-       echo ==================================================
-       timeout /t 2 >nul
-       goto inicio
-   )
+for %%F in (*.js) do echo - %%~nF
 
-   :control
-   cls
-   color b
-   echo ==================================================
-   echo  Node.js en ejecucion: %archivo%.js
-   echo ==================================================
-   echo.
-   set /p opcion=Escribe "cambiar" para detener y elegir otro archivo: 
+echo.
+set /p archivo=Escribe el archivo Node.js a ejecutar (sin .js): 
 
-   if /I "%opcion%"=="cambiar" (
-       taskkill /F /IM node.exe >nul 2>&1
-       cls
-       color c
-       echo ==================================================
-       echo       Node detenido correctamente.
-       echo ==================================================
-       timeout /t 2 >nul
-       goto inicio
-   ) else (
-       goto control
-   )
+if exist "%archivo%.js" (
+    cls
+    echo ==================================================
+    echo Ejecutando %archivo%.js...
+    echo ==================================================
+    start /B node "%archivo%.js"
+    goto control
+) else (
+    cls
+    color c
+    echo ==================================================
+    echo   ERROR: El archivo "%archivo%.js" no existe.
+    echo   Intentalo de nuevo.
+    echo ==================================================
+    timeout /t 2 >nul
+    goto inicio
+)
+
+:control
+cls
+color b
+echo ==================================================
+echo  Node.js en ejecucion: %archivo%.js
+echo ==================================================
+echo.
+set /p opcion=Escribe "cambiar" para detener y elegir otro archivo: 
+
+if /I "%opcion%"=="cambiar" (
+    taskkill /F /IM node.exe >nul 2>&1
+    cls
+    color c
+    echo ==================================================
+    echo       Node detenido correctamente.
+    echo ==================================================
+    timeout /t 2 >nul
+    goto inicio
+) else (
+    goto control
+)
    ```
 
 3. **Ejecuta el archivo `.bat`**:
