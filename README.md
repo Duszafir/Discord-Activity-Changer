@@ -73,71 +73,9 @@ Para facilitar la ejecución del proyecto, hemos incluido un archivo `.bat` que 
 
 1. Asegúrate de haber configurado correctamente el código de `example.js`, incluyendo tu propio `clientId` obtenido desde el portal de desarrolladores de Discord.
 
-2. **Modifica el archivo `.bat`**:
-   - Si el archivo `.bat` aún no está configurado, abre el archivo `DiscordActivityChanger.bat` con un editor de texto (como Notepad) y asegúrate de que esté correctamente configurado para ejecutar tu archivo `example.js`. El contenido debería verse algo así:
-
-   ```bat
-      @echo off
-      title Discord Activity Changer
-      :inicio
-      cls
-      color a
-      echo ========================================
-      echo       Discord Activity Changer
-      echo ========================================
-      echo.
-      echo Archivos disponibles en la carpeta:
-      echo ----------------------------------------
-
-      for %%F in (*.js) do echo - %%~nF
-
-      echo.
-      set /p archivo=Escribe el archivo Node.js a ejecutar (sin .js): 
-
-      if exist "%archivo%.js" (
-          cls
-          echo ==================================================
-          echo Ejecutando %archivo%.js...
-          echo ==================================================
-          start /B node "%archivo%.js"
-          goto control
-      ) else (
-          cls
-          color c
-          echo ==================================================
-          echo   ERROR: El archivo "%archivo%.js" no existe.
-          echo   Intentalo de nuevo.
-          echo ==================================================
-          timeout /t 2 >nul
-          goto inicio
-      )
-
-      :control
-      cls
-      color b
-      echo ==================================================
-      echo  Node.js en ejecucion: %archivo%.js
-      echo ==================================================
-      echo.
-      set /p opcion=Escribe "cambiar" para detener y elegir otro archivo: 
-
-      if /I "%opcion%"=="cambiar" (
-          taskkill /F /IM node.exe >nul 2>&1
-          cls
-          color c
-          echo ==================================================
-          echo       Node detenido correctamente.
-          echo ==================================================
-          timeout /t 2 >nul
-          goto inicio
-      ) else (
-          goto control
-      )
-
-
-3. **Ejecuta el archivo `.bat`**:
+2. **Ejecuta el archivo `.bat`**:
    - Solo debes hacer doble clic en el archivo `DiscordActivityChanger.bat` y seguir las instrucciones que aparecen en la consola para ejecutar tu script.
-
+     
 ---
 
 ¡Y eso es todo! Ahora tendrás tu actividad de Discord configurada y en ejecución. Si tienes alguna pregunta, no dudes en abrir un issue en el repositorio.
