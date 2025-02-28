@@ -4,6 +4,8 @@
 
 Este proyecto permite cambiar el estado de actividad (Rich Presence) de tu cuenta de Discord, mostrando información personalizada sobre lo que estás jugando. Puedes configurar detalles como el título del juego, la imagen que aparece en tu perfil, y más.
 
+![image](https://github.com/user-attachments/assets/4a243c9d-55ae-4483-91e1-5114fcfaeaa9)
+
 ## **Requisitos previos**
 
 1. **Node.js**: Necesitas tener instalado [Node.js](https://nodejs.org/) para ejecutar el código de este proyecto.
