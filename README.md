@@ -38,9 +38,9 @@ async function setActivity() {
     if (!rpc) return;
     rpc.setActivity({
         details: "Playing example blabla",
-        state: "This is a very good game!", // Estado de la actividad
+        state: "This is a very good game!",
         largeImageKey: "example.png",
-        largeImageText: "example", // Texto que aparecerá al pasar el mouse sobre la imagen
+        largeImageText: "example", 
         startTimestamp: startTimestamp
     });
 }
